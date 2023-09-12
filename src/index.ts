@@ -83,6 +83,15 @@ app.delete("/maTacheDelete/:tacheNameId", async (req, res) => {
     res.send("deleted");   
 });
 
+app.delete("/deleteAll", async (req, res) => { 
+      
+    const deleteMaTache =  await maTache.destroy({
+        truncate: true
+      });  
+   
+    res.send("deleted");   
+});
+
 app.get("/upDateRowTache/true/:id/", async (req, res) => { 
     const tacheID = req.params.id;  
     const updateMaTache = await maTache.update({tacheIsChecked : true},{
