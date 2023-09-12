@@ -67,6 +67,11 @@ app.get("/maTacheCreate/:tacheName", async (req, res) => {
     res.send(creerMaTache);   
 });
 
+app.get("/", async (_, res) => { 
+    
+    res.send("Hello OK");   
+});
+
 app.get("/maTacheFindAll", async (_, res) => {   
     const maListeDeTache =  await maTache.findAll();     
     res.send(maListeDeTache);   
