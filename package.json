@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/index.js\"",
     "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+		"add-build": "git add dist",
     "start": "tsc && node dist/index.js"
   },
   "author": "",
@@ -34,8 +36,9 @@
     "tedious": "^16.4.0"
   },
   "pre-commit": [
-    
-    "build"
+    "ts.check",
+    "build",
+    "add-build"
     
 ]
 }
